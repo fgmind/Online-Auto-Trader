@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Online Auto Trader - seller registration</title>
+
+
+
+<link href="OAT style.css" rel="stylesheet" type="text/css">
+
+<style>
+	.column1, .column2 {
+				width: 25%;
+				float: left;
+				margin: 1%;}
+
+	.footer{width:100%; float:left;}
+	
+	p {color:white}
+	
+	textarea {
+    width: 100%;
+    height: 150px;
+    
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    
+    resize: none;}
+	
+</style>	
+
+<script type="text/javascript">
+	function validateForm(){
+		login = document.getElementById("sellerLogin").value;
+		pass = document.getElementById("sellerPassword").value;
+		email = document.getElementById("sellerEmail").value;
+		patt = /^[0-9a-z]+@[0-9a-z]+[\.][(com)|(my)|(net)|(co\.nz)]$/i;
+		patt2 = /^0[0-9]+$/;
+		fname = document.getElementById("sellerFirst").value;
+		lname = document.getElementById("sellerLast").value;
+		phone = document.getElementById("sellerPhone").value;
+		address= document.getElementById("sellerAddress").value;
+		
+		if (login=="" || pass=="" || email=="" || fname=="" || lname=="" ||phone=="" || address ==""){
+			alert("Please fill in all the fields!");
+			return false;			
+		}
+		if (pass.length < 8){
+			alert("Password has to be a minimum of 8 characters");
+			return false;
+		}
+
+		if (patt.test(email) != true){
+			alert("invalid email address");
+			return false;
+		}
+		if (patt2.test(phone) != true || phone.length != 9){
+			alert("invalid phone number");
+			return false;
+		}		
+		
+		return true;
+		
+
+		
+
+	}
+</script>	
+
+</head>
+
+<body>
+
+
+	<h1>Welcome to Online Auto Trader<img src="logo.png"</h1>
+
+    <p id="p00">
+    	<a href="OAT homepage.html"; style="color:blue">Home</a>
+		<a href=""; style="color:blue">Buy a Car</a>
+		<a href=""; style="color:blue">Seller's corner</a>
+		<a href=""; style="color:blue">Contact</a>
+        <a href="OAT login page.html"; style="color:blue">Login</a>
+	</p>
+    <hr>
+    
+    <h2>Seller Registration</h2>
+    <p id="p01">For a seller to advertise cars, one must first register first.</p>
+    <p id="p01">Please fill in the following fields and submit your details.</p>
+
+<div class="column1"></div>
+<div class="article column1">
+            <form onSubmit = "return validateForm()">
+				<p> User Login:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id = "sellerLogin" maxlength="15" > </p>
+                <p> Password :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password"; id ="sellerPassword"> </p>
+                <p> Email : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email"; id="sellerEmail"></p>
+                <p> First Name: &nbsp;&nbsp;&nbsp;&nbsp;<input type="text"; id="sellerFirst"></p>
+                <p> Last Name: &nbsp;&nbsp;&nbsp;&nbsp;<input type="text"; id="sellerLast"></p>
+                <p> Telephone: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="tel"; id="sellerPhone"></p>
+                <p> Address : <textarea id="sellerAddress"> </textarea></p>
+                
+  				<p style="text-align:center"> <input type="reset"> <input type="submit"></p>
+
+  
+
+			</form>
+              
+			</div>
+
+<div class="footer"><p id="footer">Online Auto Trader is a registered company. All rights reserved 2015</p></div>
+    
+
+</body>
+</html>
